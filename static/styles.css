@@ -1,0 +1,145 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, Blinkersans, sans-serif;
+  background: #080b14;
+  color: #eaf0ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(66, 91, 180, 0.13), transparent 34rem),
+    #080b14;
+}
+
+main {
+  min-height: 100vh;
+  padding: 24px 32px;
+}
+
+header {
+  height: 68px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: #6f86ff;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+h1 { margin: 0; font-size: 26px; }
+h2 { margin: 0 0 16px; font-size: 13px; color: #b9c4df; }
+
+.status {
+  margin-top: 8px;
+  color: #9cabc9;
+  font-size: 12px;
+}
+
+.status span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: #5ee6a8;
+  box-shadow: 0 0 12px #5ee6a8;
+}
+
+.workspace {
+  height: calc(100vh - 116px);
+  min-height: 540px;
+  display: grid;
+  grid-template-columns: 210px 1fr 220px;
+  border: 1px solid rgba(143, 160, 208, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(10, 14, 27, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.panel {
+  padding: 22px 18px;
+  background: rgba(10, 14, 27, 0.92);
+}
+
+.controls { border-right: 1px solid rgba(143, 160, 208, 0.12); }
+.metrics { border-left: 1px solid rgba(143, 160, 208, 0.12); }
+
+.controls label {
+  display: flex;
+  justify-content: space-between;
+  margin: 17px 0 8px;
+  color: #aeb9d4;
+  font-size: 12px;
+}
+
+input[type="range"] { width: 100%; accent-color: #7188ff; }
+
+.prediction {
+  margin: 22px 0 28px;
+  padding: 14px;
+  border: 1px solid rgba(143, 160, 208, 0.13);
+  border-radius: 10px;
+  background: rgba(108, 126, 218, 0.06);
+}
+
+.prediction span, .loss-card span {
+  display: block;
+  margin-bottom: 7px;
+  color: #8997b7;
+  font-size: 11px;
+}
+
+.prediction strong {
+  display: block;
+  font-size: 28px;
+  color: #a8b5ff;
+}
+
+.prediction small { color: #7f8daa; }
+
+.legend { display: grid; gap: 8px; margin-top: 12px; font-size: 11px; color: #8997b7; }
+.legend i { display: inline-block; width: 16px; height: 3px; margin-right: 8px; vertical-align: middle; }
+.positive { background: #78e2b4; }
+.negative { background: #ff718b; }
+
+#scene { position: relative; min-width: 0; }
+#scene canvas { display: block; width: 100%; height: 100%; }
+
+.samples { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 24px; }
+.sample {
+  padding: 9px;
+  border: 1px solid rgba(143, 160, 208, 0.12);
+  border-radius: 8px;
+  font-size: 11px;
+  color: #95a1be;
+}
+.sample strong { float: right; color: #b1bdff; }
+
+.loss-card {
+  padding: 10px 0;
+  color: #8997b7;
+}
+.loss-card strong { font-size: 20px; color: #78e2b4; }
+#lossChart { width: 100%; height: 150px; }
+
+@media (max-width: 900px) {
+  main { padding: 16px; }
+  .workspace { grid-template-columns: 180px 1fr; }
+  .metrics { display: none; }
+}
+
+@media (max-width: 650px) {
+  header { height: 82px; }
+  .workspace { grid-template-columns: 1fr; height: calc(100vh - 130px); }
+  .controls { display: none; }
+}

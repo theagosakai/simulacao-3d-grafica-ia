@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rede Neural 3D</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">SIMULAÇÃO GRÁFICA DE IA</p>
+          <h1>Rede neural em espaço 3D</h1>
+        </div>
+        <div class="status"><span></span> Modelo treinado</div>
+      </header>
+
+      <section class="workspace">
+        <aside class="panel controls">
+          <h2>Entrada</h2>
+          <label>X <output id="xValue">0.50</output></label>
+          <input id="xInput" type="range" min="0" max="1" step="0.01" value="0.50" />
+          <label>Y <output id="yValue">0.50</output></label>
+          <input id="yInput" type="range" min="0" max="1" step="0.01" value="0.50" />
+          <div class="prediction">
+            <span>Probabilidade</span>
+            <strong id="probability">--</strong>
+            <small id="predictionClass">Classe --</small>
+          </div>
+          <h2>Arquitetura</h2>
+          <p>2 entradas → 6 nós ocultos → 1 saída</p>
+          <div class="legend">
+            <span><i class="positive"></i> Peso positivo</span>
+            <span><i class="negative"></i> Peso negativo</span>
+          </div>
+        </aside>
+
+        <div id="scene" aria-label="Visualização 3D da rede neural"></div>
+
+        <aside class="panel metrics">
+          <h2>Dados XOR</h2>
+          <div id="trainingSamples" class="samples"></div>
+          <h2>Treinamento</h2>
+          <div class="loss-card">
+            <span>Erro final</span>
+            <strong id="finalLoss">--</strong>
+          </div>
+          <canvas id="lossChart" width="300" height="150"></canvas>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="/static/main.js"></script>
+  </body>
+</html>
